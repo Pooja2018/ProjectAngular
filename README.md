@@ -1,4 +1,7 @@
 # Frontend
+By
+
+Puja Bera(pujaberamis@gmail.com)
 
 Frontend of Vyntra - an E-Commerce Application built using Spring + Angular
 
