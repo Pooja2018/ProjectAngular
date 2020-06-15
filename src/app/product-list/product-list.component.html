@@ -1,0 +1,52 @@
+<div class="list row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-lg-9">
+      <!-- This is for search component -->
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+      <!-- -->
+      <br/>
+      <h3>Everything You Love Is Here! <i class="fa fa-heart" style="font-size:28px;color:red"></i></h3>
+      <br/>
+      <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products;let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveProduct(product, i)">
+              <div class="card h-100">
+                <img class="card-img-top img-responsive" [src]="product.imageUrl">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    {{product.title}}
+                  </h4>
+                  <h5>{{product.unitPrice | currency: 'INR'}}</h5>
+                  <p class="card-text"><em>{{product.description}}</em></p>
+                </div>
+                <div class="card-footer">
+                  <button (click)="addToCart(product)" class="btn btn-primary float-right">
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="products?.length == 0" class="col-md-12 alert alert-warning mt-3">
+                No Matching Products Found
+            </div>
+      </div>
+
+  </div>

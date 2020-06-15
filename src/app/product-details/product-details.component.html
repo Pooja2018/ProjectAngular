@@ -1,0 +1,77 @@
+<div style="color: ivory;" *ngIf="currentProduct" class="edit-form">
+  <br/>  
+  <h2>Edit Product</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentProduct.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentProduct.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="unitPrice">Unit Price:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="unitPrice"
+          [(ngModel)]="currentProduct.unitPrice"
+          name="unitPrice"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">Image Url:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imageUrl"
+          [(ngModel)]="currentProduct.imageUrl"
+          name="imageUrl"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="unitsInStock">Units In Stock:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="unitsInStock"
+          [(ngModel)]="currentProduct.unitsInStock"
+          name="unitsInStock"
+        />
+      </div>
+  
+      
+    </form>
+  
+  
+    <button class="btn btn-danger mr-2" (click)="deleteProduct()">
+      Delete
+    </button>
+  
+    <button type="submit" class="btn btn-info" (click)="updateProduct()">
+      Update
+    </button>
+    <p style="color: green;">{{ message }}</p>
+  </div>
+  
+  <div *ngIf="!currentProduct">
+    <br />
+    <p>Cannot access this Product...</p>
+  </div>

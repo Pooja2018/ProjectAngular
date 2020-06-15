@@ -1,0 +1,19 @@
+<div *ngIf="info.token; else loggedOut">
+  <br/>
+  <h5 style="color:ivory">Your Information</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br />
+  </p>
+  <button class="btn btn-secondary" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #loggedOut>
+  <br>
+  <h1>Vyntra</h1>
+  <strong><h3>Green Apparel For A Better World: Natural, Eco-friendly, Organic, Recycled!</h3></strong>
+  <div class="container">
+    <div class="center">
+      <button class="btn btn-secondary" routerLink="/auth/login">Login </button>
+    </div>
+  </div>
+</ng-template>

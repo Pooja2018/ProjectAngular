@@ -1,0 +1,66 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" />
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="button" (click)="searchTitle()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+  
+  <h4>Products List</h4>
+  <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products; let i = index" [class.active]="i == currentIndex"
+    (click)="setActiveProduct(product, i)">
+    <div class="card" style="width: 15rem;">
+      <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-title"><u>Title:</u> {{product.title}}</p>
+        <p class="card-text"><u>Description:</u> {{product.description}}</p>
+        <p class="card-text"><u>Price:</u> {{product.unitPrice}}</p>
+        <p class="card-text"><u>Image URL:</u> {{product.imageUrl}}</p>
+        <p class="card-text"><u>Units In Stock:</u> {{product.unitsInStock}}</p>
+        <a class="btn btn-info" href="/products/{{ product.id }}">
+          Edit
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!--<div class="col-md-6" style="color: white; background-color: #2c3e50; background-size:inherit;">
+      <div *ngIf="currentProduct">
+        <h4>Product</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentProduct.title }}
+        </div>
+        <div>
+          <label><strong>Image:</strong></label> <img [src]="currentProduct.imageUrl"
+            style="height: 100px; width: 100px;">
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentProduct.description }}
+        </div>
+        <div>
+          <label><strong>Unit Price:</strong></label>
+          {{ currentProduct.unitPrice }}
+        </div>
+        <div>
+          <label><strong>Image URL:</strong></label>
+          {{ currentProduct.imageUrl }}
+        </div>
+        <div>
+          <label><strong>Units In Stock:</strong></label>
+          {{ currentProduct.unitsInStock }}
+        </div>
+
+        <a class="badge badge-warning" href="/products/{{ currentProduct.id }}">
+          Edit
+        </a>
+      </div>-->
+
+</div>

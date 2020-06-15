@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <p style="background-color: ivory; text-align: center;">Almost There! <i class="fa fa-heart" style="font-size:28px;color:red"></i></p>
+    
+      <div>Enter delivery address:</div>
+      <br/>
+      <textarea name="delivery" rows="5" cols="30">Address here...</textarea>
+      <br/>
+      <hr/>
+      <div class="col-md-4">
+        Choose Payment Mode
+        <hr/>
+        <button (click)="func()" class="btn btn-warning">Cash On Delivery</button>
+        <br/>
+        <br/>
+        <button (click)="pay(30)" class="btn btn-warning">Pay {{getTotal() | async | currency: 'INR'}} Using Debit/Credit Card</button>
+      </div>    
+    <p class="mt-5">
+        <em>Try it out using the test card number <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any expiration date in the future, and a random five-digit U.S. ZIP code.</em>
+    </p>
+  </div>

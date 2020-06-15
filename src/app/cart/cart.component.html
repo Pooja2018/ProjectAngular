@@ -1,0 +1,54 @@
+<br/>
+<p style="background-color: ivory; text-align: center;">Your Favourites Are Just A Step Away From Home <i class="fa fa-heart" style="font-size:28px;color:red"></i></p>
+<hr/>
+<p style="color: ivory;">Total Number Of Items In Cart:  ({{calctotal()}})</p>
+<p style="color: ivory;">Cart Total: {{getTotal() | async | currency: 'INR'}}</p>
+<a routerLink="/checkout" class="btn btn-success" href="">Check Out</a>
+<div class="cart-item" *ngFor="let item of shoppingCartItems" style="color: ivory;">
+    <br />
+    <hr />
+    <br />
+    <div class="col-lg-9">
+        <div class="row">
+
+            <!-- To display Product Image-->
+            <div class="col-12 col-md-4">
+                <div class="polaroid">
+                    <img src="{{item.imageUrl}}" alt="5 Terre" style="width:100%">
+                    <div class="container">
+                    <p style="color: black;">{{item.title}} <i class="fa fa-heart" style="font-size:28px;color:red"></i></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- To display Product details-->
+            <div class="col-12 col-md-8">
+                <h3>
+                    {{item.title}}
+                </h3>
+                <hr />
+                <p>
+                    <em>{{item.description}}</em>
+                </p>
+                <hr />
+                <h6>Price: <strong>{{item.unitPrice | currency: 'INR'}}</strong></h6>
+                <hr />
+                <p>Size: <select name="sizes">
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                </select></p>
+                <hr />
+                Quantity: <input type="number" [(ngModel)]="item.num" min="0"/>
+                <hr/>
+                <p>Sub-Total: {{ item.unitPrice * item.num | currency: 'INR'}} </p>
+                <button class="btn btn-info" (click)="removeFromCart(item)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
